@@ -486,6 +486,13 @@ def api_server(api_services, **kwargs):
   apis_app = _ApiServer(api_services, **kwargs)
   dispatcher = endpoints_dispatcher.EndpointsDispatcherMiddleware(apis_app)
 
+  # Determine if we should start up API management
+  skip = os.environ.get('ENDPOINTS_SKIP_MANAGEMENT')
+  if skip:
+    _logger.info('ENDPOINTS_SKIP_MANAGEMENT is specified so service control '
+                 'is disabled.')
+    return dispatcher
+
   # Determine the service name
   service_name = os.environ.get('ENDPOINTS_SERVICE_NAME')
   if not service_name:
