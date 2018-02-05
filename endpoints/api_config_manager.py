@@ -61,6 +61,7 @@ class ApiConfigManager(object):
     Args:
       config_json: A dict, the JSON body of the getApiConfigs response.
     """
+    _logger.info('process_api_config_response called')
     with self._config_lock:
       self._add_discovery_config()
       for config in config_json.get('items', []):
