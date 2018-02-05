@@ -110,7 +110,7 @@ class DiscoveryService(object):
 
     generator = discovery_generator.DiscoveryGenerator(request=request)
     services = [s for s in self._backend.api_services if
-                s.api_info.name == api and s.api_info.version == version]
+                s.api_info.name == api and s.api_info.api_version == version]
     doc = generator.pretty_print_config_to_json(services)
     if not doc:
       error_msg = ('Failed to convert .api to discovery doc for '
