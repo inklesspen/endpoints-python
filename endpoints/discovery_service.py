@@ -48,6 +48,8 @@ class DiscoveryService(object):
   API_CONFIG = {
       'name': 'discovery',
       'version': 'v1',
+      'api_version': 'v1',
+      'path_version': 'v1',
       'methods': {
           'discovery.apis.getRest': {
               'path': 'apis/{api}/{version}/rest',

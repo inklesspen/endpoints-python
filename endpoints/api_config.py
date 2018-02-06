@@ -2167,6 +2167,8 @@ class ApiConfigGenerator(object):
         'root': '{0}://{1}/{2}'.format(protocol, hostname, base_path),
         'name': api_info.name,
         'version': api_info.api_version,
+        'api_version': api_info.api_version,
+        'path_version': api_info.path_version,
         'defaultVersion': True,
         'abstract': False,
         'adapter': {
